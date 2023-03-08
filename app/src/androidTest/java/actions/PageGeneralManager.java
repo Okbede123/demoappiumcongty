@@ -21,4 +21,11 @@ public class PageGeneralManager {
     public static DashBoardPageObject openDashBoardPage(WebDriver driver){
         return new DashBoardPageObject(driver);
     }
+
+    public static CreateInvoiceOrdersPageObject openCreateInvoiceOrderPage(WebDriver driver){
+        return new CreateInvoiceOrdersPageObject(driver);
+    }
+    public static SelectPicturePageObject openSelectPicturePage(WebDriver driver){
+        return new SelectPicturePageObject(driver);
+    }
 }
