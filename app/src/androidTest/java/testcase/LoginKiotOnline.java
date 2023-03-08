@@ -22,10 +22,10 @@ public class LoginKiotOnline extends BaseTest {
     DashBoardPageObject dashBoardPageObject;
 
 
-    @Parameters({"nameFile","PathFile","platformName","deviceName"})
+    @Parameters({"package","activity","platformName","deviceName"})
     @BeforeMethod
-    public void beforeMethod(String nameFile,String pathFile,String platFromName,String deviceName){
-        driver = getAndroidDriver(nameFile,pathFile,platFromName,deviceName);
+    public void beforeMethod(String packAge,String activity,String platformName,String device){
+        driver = getAndroidActivityDriver(platformName,device,packAge,activity);
         onboardingPageObject = PageGeneralManager.openOnBoardingPage(driver);
     }
 

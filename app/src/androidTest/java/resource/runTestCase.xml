@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Default Suite">
+<suite name="Tesst Suite">
 
     <listeners>
         <listener class-name = "cores.reportconfig.ExtentTestListener"/>
     </listeners>
 
-    <parameter name = "nameFile" value="kiotonline.apk"/>
-    <parameter name = "PathFile" value="C:\Users\duc.vm4\AppData\Local\Android\Sdk\platform-tools"/>
+    <parameter name = "package" value="net.citigo.kol.free"/>
+    <parameter name = "activity" value="net.citigo.kiotviet.pos.fb.ui.MainActivity"/>
     <test thread-count="5" name="My Application">
         <parameter name = "platformName" value="Android"/>
         <parameter name = "deviceName" value="emulator-5554"/>

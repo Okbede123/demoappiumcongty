@@ -12,14 +12,16 @@ public class OnboardingPageObject extends BasePage {
         super(driver);
     }
 
-    public void clickToSkip(){
+    public LoginPageObject clickToSkip(){
         clickToElements(GlobalConstantUI.DYNAMIC_WIDGET_TEXTVIEW,"Bỏ qua");
+        return PageGeneralManager.openLoginPage(driver);
     }
 
 
-    public void doubleClickToNextOnBoarding(){
+    public OnboardingPageObject doubleClickToNextOnBoarding(){
         clickToElements(GlobalConstantUI.DYNAMIC_WIDGET_BUTTON,"Tiếp theo");
         clickToElements(GlobalConstantUI.DYNAMIC_WIDGET_BUTTON,"Tiếp theo");
+        return PageGeneralManager.openOnBoardingPage(driver);
     }
 
     public Object clickToNextOnBoardingThirdAndActionDynamic(String button){
