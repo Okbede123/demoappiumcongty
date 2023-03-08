@@ -45,7 +45,7 @@ public class LoginKiotOnline extends BaseTest {
         onboardingPageObject.doubleClickToNextOnBoarding();
         loginPageObject = (LoginPageObject) onboardingPageObject.clickToNextOnBoardingThirdAndActionDynamic("Đăng nhập");
         dashBoardPageObject = loginPageObject.inputNameStoreAndUserNameAndPassword("0563886668","0563886668","1");
-        dashBoardPageObject.turnOffToolTip();
+        dashBoardPageObject.turnOffToolTip("Nhấn vào đây để thêm mới đơn hàng");
         System.out.println(GlobalConstant.GETLINK_PROJECT + "/app/src/androidTest/java/report/ExtentReport.html");
         Assert.assertFalse(dashBoardPageObject.isDashBoardSaleDisplayed());
     }

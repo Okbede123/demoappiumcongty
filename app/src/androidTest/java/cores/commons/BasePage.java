@@ -1,13 +1,14 @@
 package cores.commons;
 
 
+import InterFaceUI.DashBoardPageUI;
+import InterFaceUI.BaseUI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -252,5 +253,15 @@ public class BasePage {
         Random rand = new Random();
         int random = rand.nextInt(1000);
         return random;
+    }
+
+    public void turnOffToolTip(String nameToolTips){
+        for (String textToolTip:GlobalConstant.getListTextToolTip()) {
+            if(textToolTip.equals(nameToolTips)){
+                if(isElementDisplayed(BaseUI.DYNAMIC_WIDGET_TEXTVIEW,textToolTip)){
+                    clickToElements(DashBoardPageUI.CLOSE_TOOLTIP);
+                }
+            }
+        }
     }
 }
