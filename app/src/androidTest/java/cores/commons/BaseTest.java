@@ -35,6 +35,21 @@ public class BaseTest {
         return  driver;
     }
 
+    public AppiumDriver getAndroidActivityDriver(String platformName,String deviceName,String packAge,String activity){
+        DesiredCapabilities d   = new DesiredCapabilities();
+        d.setCapability("platformName",platformName);
+        d.setCapability("deviceName",deviceName);
+        d.setCapability("appPackage",packAge);
+        d.setCapability("appActivity",activity);
+        try {
+            driver = new AndroidDriver(new URL(GlobalConstant.LINK_APPIUM_HTTP),d);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        return  driver;
+    }
+
     public WebDriver getDriver(){
         return driver;
     }
