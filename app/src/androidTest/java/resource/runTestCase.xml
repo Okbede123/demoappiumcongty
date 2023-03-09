@@ -9,9 +9,9 @@
     <parameter name = "activity" value="net.citigo.kiotviet.pos.fb.ui.MainActivity"/>
     <test thread-count="5" name="My Application">
         <parameter name = "platformName" value="Android"/>
-        <parameter name = "deviceName" value="emulator-5554"/>
+        <parameter name = "deviceName" value="emulator-5556"/>
         <classes>
-            <class name="testcase.LoginKiotOnline"/>
+            <class name="testcase.CreateOrder"/>
         </classes>
     </test> <!-- My Application -->
 </suite> <!-- Default Suite -->

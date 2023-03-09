@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Tesst Suite">
+
+    <listeners>
+        <listener class-name = "cores.reportconfig.ExtentTestListener"/>
+    </listeners>
+
+    <test thread-count="1" name="My Application">
+        <classes>
+            <class name="testcase.DemoTouchAppium"/>
+        </classes>
+    </test> <!-- My Application -->
+</suite> <!-- Default Suite -->
