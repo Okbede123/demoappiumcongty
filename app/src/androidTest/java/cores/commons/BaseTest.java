@@ -4,6 +4,7 @@ package cores.commons;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -49,6 +50,22 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return  driver;
     }
+
+    public AndroidDriver getAndroidActivityDriverTouch(String platformName,String deviceName,String packAge,String activity){
+        DesiredCapabilities d   = new DesiredCapabilities();
+        d.setCapability("platformName",platformName);
+        d.setCapability("deviceName",deviceName);
+        d.setCapability("appPackage",packAge);
+        d.setCapability("appActivity",activity);
+        try {
+          AndroidDriver<AndroidElement>  driver = new AndroidDriver<>(new URL(GlobalConstant.LINK_APPIUM_HTTP),d);
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        return (AndroidDriver) driver;
+    }
+
 
     public WebDriver getDriver(){
         return driver;

@@ -40,6 +40,6 @@ public class CreateOrder extends BaseTest {
         createInvoiceOrdersPageObject.clickToCreateOrderInvoice();
         selectPicturePageObject = createInvoiceOrdersPageObject.takePicture();
         selectPicturePageObject.ChoosePicture();
-        createInvoiceOrdersPageObject.inputInformationItems("hang test");
+        createInvoiceOrdersPageObject.inputInformationItems("hang test","check82","f","5000","10000","99");
     }
 }
