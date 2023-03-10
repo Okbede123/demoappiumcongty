@@ -67,20 +67,41 @@ public class DemoTouchAppium extends BaseTest {
         androidTouchAction.tap(ElementOption.element(androidElement)).perform();
     }
 
-    @Test
-    public void TC_02_HandSwipe(Method method){
+    //@Test
+    public void TC_02_HandSwipeRightAndLeft(Method method){
         ExtentManager.startTest(method.getName(),"TC_01_HandSwipe");
         ExtentManager.getTest().log(Status.INFO,"test swipe");
         onboardingPageObject = PageGeneralManager.openOnBoardingPage(driver);
-        AndroidElement androidElement_Swipe = driver.findElement(By.className("android.view.ViewGroup"));
-        androidTouchAction.press(ElementOption.element(androidElement_Swipe)).waitAction().moveTo(PointOption.point(-690,371)).release().perform();
-//
-//        loginPageObject = onboardingPageObject.clickToSkip();
-//        dashBoardPageObject = loginPageObject.inputNameStoreAndUserNameAndPassword("0563886668","0563886668","1");
-//        dashBoardPageObject.turnOffToolTip("Nhấn vào đây để thêm mới đơn hàng");
-//        androidElement = (AndroidElement) driver.findElement(By.xpath(BaseUI.TAG_DYNAMIC_IMAGE_BUTTON+"[@resource-id = 'net.citigo.kol.free:id/fabAddInvoice']"));
-//
-//        AndroidElement androidElement_Swipe = driver.findElement(By.xpath("//android.widget.ImageView[@resource-id='net.citigo.kol.free:id/ivThumbnail']"));
-//        androidTouchAction.press(ElementOption.element(androidElement_Swipe)).waitAction().moveTo(PointOption.point(320,1966)).release().perform();
+        AndroidElement androidElement_Swipe = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'KiotOnline giúp bạn quản lý')]"));
+
+        //scroll sang trái, để x là số âm có thể gấp đôi số hiện tại của element, ví dụ element là x = 83, thì có thể để tầm -83 hoặc -100. để số càng âm thì càng scroll sang trái nhiều
+        androidTouchAction.press(ElementOption.element(androidElement_Swipe)).waitAction().moveTo(PointOption.point(-83,1336)).release().perform();
+        sleepInTime(4);
+        //scroll sang phải, để số dương, nếu để càng to, thì scroll càng mạnh
+        AndroidElement androidElement_Swipe_2 = driver.findElement(By.xpath("//android.widget.TextView[contains(@text,'Quy trình khép kín')]"));
+        androidTouchAction.press(ElementOption.element(androidElement_Swipe_2)).waitAction().moveTo(PointOption.point(83,1336)).release().perform();
+
+    }
+
+    @Test
+    public void TC_03_HandSwipeUpAndDown(Method method){
+        ExtentManager.startTest(method.getName(),"TC_03_HandSwipeUpAndDown");
+        ExtentManager.getTest().log(Status.INFO,"test swipe up and down");
+        onboardingPageObject = PageGeneralManager.openOnBoardingPage(driver);
+
+
+        loginPageObject = onboardingPageObject.clickToSkip();
+        dashBoardPageObject = loginPageObject.inputNameStoreAndUserNameAndPassword("0563886668","0563886668","1");
+        dashBoardPageObject.turnOffToolTip("Nhấn vào đây để thêm mới đơn hàng");
+        //androidElement = (AndroidElement) driver.findElement(By.xpath(BaseUI.TAG_DYNAMIC_IMAGE_BUTTON+"[@resource-id = 'net.citigo.kol.free:id/fabAddInvoice']"));
+
+        AndroidElement androidElement_Swipe = driver.findElement(By.xpath("//android.widget.TextView[@text='Theo số lượng']"));
+        //scroll xuống thì y để số âm, càng lớn thì scroll xuống càng mạnh
+        androidTouchAction.press(ElementOption.element(androidElement_Swipe)).waitAction().moveTo(PointOption.point(412,-764)).release().perform();
+        sleepInTime(5);
+        //scroll lên thì y để số dương, càng lớn thì scroll lên càng mạnh
+        AndroidElement androidElement_Swipe2 = driver.findElement(By.xpath("//android.view.ViewGroup[@resource-id='net.citigo.kol.free:id/lGuide']"));
+        androidTouchAction.press(ElementOption.element(androidElement_Swipe2)).waitAction().moveTo(PointOption.point(0,668)).release().perform();
+
     }
 }
